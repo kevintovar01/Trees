@@ -148,7 +148,6 @@ public class AvlTree<T extends Comparable<T>> {
 			g.drawString(root.getValue().toString(), inix + root.x + distanciaX, iniy + root.y + distanciaY);
 		}
 		if (node != root) {
-			System.out.println(node.getParent());
 			if (node == node.getParent().getChilds().get(0) ) {
 				node.x=node.getParent().x-90;
 				node.y=node.getParent().y+75;
@@ -159,7 +158,7 @@ public class AvlTree<T extends Comparable<T>> {
 
 			}
 			if (node == node.getParent().getChilds().get(1)) {
-				node.x=node.getParent().x-90;
+				node.x=node.getParent().x+90;
 				node.y=node.getParent().y+75;
 				g.drawOval(inix+node.x, iniy+node.y, 30, 30);
 				g.drawString(node.getValue().toString(), inix+node.x+distanciaX, iniy+node.y+distanciaY);
