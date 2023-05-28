@@ -6,6 +6,7 @@ import java.awt.SystemColor;
 import java.awt.TextField;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
@@ -68,7 +69,9 @@ public class InterfaceAvl extends JPanel implements ActionListener {
         			tree.removeNode(Integer.parseInt(textField.getText()));
         			repaint();
         			textField.setText("");
-        		}catch(Exception ex){}
+        		}catch(Exception ex){
+					mostrarError("Por favor ingrese un valor");
+				}
         		
         	}
         });
@@ -91,7 +94,9 @@ public class InterfaceAvl extends JPanel implements ActionListener {
 			try {				
 				node.setValue(Integer.parseInt(textField.getText()));
 				tree.addNode(node);
-			}catch(Exception ex) {}
+			}catch(Exception ex) {
+				mostrarError("Por favor ingrese un valor");
+			}
 		}else {		
 			tree.insertNode(Integer.parseInt(textField.getText()));
 		}
@@ -104,5 +109,7 @@ public class InterfaceAvl extends JPanel implements ActionListener {
 			tree.getRoot().arbolPreordenGrap(node, g, tree.getRoot());
 		}
 	}
-	
+	public void mostrarError(String mensaje) {
+        JOptionPane.showMessageDialog(this, mensaje, "Error", JOptionPane.ERROR_MESSAGE);
+    }
 }
