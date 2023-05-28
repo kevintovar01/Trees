@@ -8,10 +8,8 @@ public class Main {
 /*
 	public static void main(String[] args) {
 		AvlTree<Integer> tree = new AvlTree<>();
-		AvlNode<Integer> node = new AvlNode<>(80, null);
-		
-		tree.addNode(node);
-		tree.insertNode(30);
+
+		tree.insertNode(80);
 		tree.insertNode(20);
 		tree.insertNode(50);
 		tree.insertNode(100);

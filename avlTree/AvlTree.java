@@ -2,7 +2,6 @@ package avlTree;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.security.Principal;
 
 public class AvlTree<T extends Comparable<T>>{
 	static final int inix=290,iniy=0;// el nodo principal apaprece
@@ -151,7 +150,7 @@ public class AvlTree<T extends Comparable<T>>{
 			g.drawOval(inix+root.x, iniy+root.y, 30, 30);
 			g.drawString(root.getValue().toString(), inix+root.x+distanciaX, iniy+root.y+distanciaY);
 		}
-		System.out.println(node.getParent());
+		System.out.println(node.getParent());//faltan los padres
 		if(node.getParent()!=null){
 			if (left(node)) {
 				node.x=node.getParent().x-90;

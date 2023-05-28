@@ -83,7 +83,11 @@ public class InterfaceAvl extends JPanel implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		tree.insertNode(Integer.parseInt(textField.getText()));
+		try{
+			tree.insertNode(Integer.parseInt(textField.getText()));
+		}catch (Exception ex){
+			mostrarError("Por favor ingrese un valor");
+		}
 		conta=1;
 		repaint();
 		textField.setText("");
@@ -92,6 +96,7 @@ public class InterfaceAvl extends JPanel implements ActionListener {
 	public void paint(Graphics g) {
 		super.paint(g);
 		if (conta==1) {
+			System.out.println();
 			tree.arbolPreordenGrap(tree.getRoot(), g);
 		}
 	}
