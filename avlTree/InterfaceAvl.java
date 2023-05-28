@@ -15,7 +15,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 
-public class InterfaceAvl extends JPanel {
+public class InterfaceAvl extends JPanel implements ActionListener {
 	private JTextField textField;
 
 	AvlTree<Integer> tree = new AvlTree<>();
@@ -40,6 +40,8 @@ public class InterfaceAvl extends JPanel {
         JFrameAVL.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JFrameAVL.getContentPane().setLayout(null);
         JFrameAVL.getContentPane().add(frameScroll);
+        JFrameAVL.setSize(1256, 660);
+        JFrameAVL.setLocationRelativeTo(null);  
         
         JButton btnClear = new JButton("Clear");
         btnClear.addActionListener(new ActionListener() {
@@ -76,8 +78,11 @@ public class InterfaceAvl extends JPanel {
         JFrameAVL.getContentPane().add(btnInsert);
         JFrameAVL.setSize(732, 669);
         JFrameAVL.setLocationRelativeTo(null); 
+        
+        JFrameAVL.setVisible(true);
 	}
 	
+	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(node.getValue() == null) {
 			node.setValue(Integer.parseInt(textField.getText()));
@@ -94,5 +99,5 @@ public class InterfaceAvl extends JPanel {
 			tree.getRoot().arbolPreordenGrap(node, g, tree.getRoot());
 		}
 	}
-
+	
 }

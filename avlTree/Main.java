@@ -2,21 +2,17 @@ package avlTree;
 
 import java.awt.EventQueue;
 
+import javax.swing.JFrame;
+
+
+
+
+
 public class Main {
 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Interface frame = new Interface();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-	
+	 public static void main(String[] args) {
+	        new InterfaceAvl();
+	    }
 /*
 	public static void main(String[] args) {
 		AvlTree<Integer> tree = new AvlTree<>();
