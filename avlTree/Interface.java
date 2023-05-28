@@ -10,6 +10,8 @@ import javax.swing.JButton;
 import java.awt.Canvas;
 import java.awt.ScrollPane;
 import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
+
 import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -35,18 +37,31 @@ public class Interface extends JFrame implements ActionListener {
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+
+		JScrollPane scrollPane = new JScrollPane(this,
+		ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,
+		ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		scrollPane.setBounds(55, 38, 317, 378);
+		contentPane.add(scrollPane);
 		
 		JButton btnNewInsert = new JButton("Insert");
+		btnNewInsert.addActionListener(this);
 		btnNewInsert.setBounds(55, 427, 89, 23);
 		contentPane.add(btnNewInsert);
 		
 		JButton btnNewDelete = new JButton("Delete");
+		btnNewDelete.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent d) {
+        		tree.removeNode(Integer.parseInt(textField.getText()));
+				repaint();
+        		textField.setText("");
+        		
+        	}
+        });
 		btnNewDelete.setBounds(283, 427, 89, 23);
 		contentPane.add(btnNewDelete);
 		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(55, 38, 317, 378);
-		contentPane.add(scrollPane);
+
 		
 		Canvas canvas = new Canvas();
 		scrollPane.setRowHeaderView(canvas);
@@ -58,6 +73,11 @@ public class Interface extends JFrame implements ActionListener {
 		Button button = new Button("clear");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				tree= null;
+				node=null;
+				tree = new AvlTree<>();
+				node = new AvlNode<>(null, null);
+				repaint();
 			}
 		});
 		button.setBounds(388, 49, 70, 22);
@@ -65,7 +85,7 @@ public class Interface extends JFrame implements ActionListener {
 	}
 
 
-	@Override
+	@Override //al insertar
 	public void actionPerformed(ActionEvent e) {
 		if(node.getValue() == null) {
 			node.setValue(Integer.parseInt(textField.getText()));
@@ -73,13 +93,13 @@ public class Interface extends JFrame implements ActionListener {
 		}else {			
 			tree.insertNode(new AvlNode<>(Integer.parseInt(textField.getText())));
 		}
-		
+		textField.setText("");
 	}
 	
 	public void paintComponents(Graphics g) {
 		super.paintComponents(g);
 		if(node.getValue() == null) {
-			tree.getRoot().arbolPreordenGrap(tree);
+			tree.getRoot().arbolPreordenGrap(node, g, tree.getRoot());
 		}
 	}
 }
