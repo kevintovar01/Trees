@@ -1,16 +1,14 @@
 package avlTree;
 import java.util.ArrayList;
 
-import tree.Node;
-
 
 
 public class AvlNode<T extends Comparable<T>>{
 
-	protected T value;
-	protected ArrayList<AvlNode<T>> childs = new ArrayList<>();
-	protected AvlNode<T> parent = null;
-	protected int height;
+	private T value;
+	private ArrayList<AvlNode<T>> childs = new ArrayList<>();
+	private AvlNode<T> parent = null;
+	private int height;
 	
 	public AvlNode(T value) {
 		this.value = value;
@@ -54,8 +52,8 @@ public class AvlNode<T extends Comparable<T>>{
 	 * Regresa cambio de la altura
 	 */
 	public boolean updateHeight() {
-		int heightLeft = (this.childs.get(0) == null) ? 0 : 1+this.childs.get(1).height;
-		int heightRith = (this.childs.get(0) == null) ? 0 : 1+this.childs.get(1).height;
+		int heightLeft = (this.childs.get(0) == null) ? 0 : 1+this.childs.get(0).height;
+		int heightRith = (this.childs.get(1) == null) ? 0 : 1+this.childs.get(1).height;
 		int afterHeight = height;
 		this.height = (heightLeft >= heightRith) ? heightLeft : heightRith;
 		return afterHeight != height;
@@ -66,8 +64,8 @@ public class AvlNode<T extends Comparable<T>>{
 	 * son correctas
 	 */
 	public int calculateFB() {
-		int heightLeft = (this.childs.get(0) == null) ? 0 : 1+this.childs.get(1).height;
-		int heightRith = (this.childs.get(0) == null) ? 0 : 1+this.childs.get(1).height;
+		int heightLeft = (this.childs.get(0) == null) ? 0 : 1+this.childs.get(0).height;
+		int heightRith = (this.childs.get(1) == null) ? 0 : 1+this.childs.get(1).height;
 		return heightLeft - heightRith;
 	}
 	
@@ -82,7 +80,9 @@ public class AvlNode<T extends Comparable<T>>{
 		
 		g.getChilds().set(1, r);
 		r.getChilds().set(0, orphan);
-		orphan.parent = r;
+		if(orphan != null) {			
+			orphan.parent = r;
+		}
 		g.parent = r.getParent();
 		
 		if(r.getParent() != null) {
@@ -110,7 +110,9 @@ public class AvlNode<T extends Comparable<T>>{
 		
 		g.getChilds().set(0, r);
 		r.getChilds().set(1, orphan);
-		orphan.parent = r;
+		if(orphan != null) {			
+			orphan.parent = r;
+		}
 		g.parent = r.getParent();
 		
 		if(r.getParent() != null) {

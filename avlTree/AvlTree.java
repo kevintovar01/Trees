@@ -1,9 +1,5 @@
 package avlTree;
 
-
-import tree.Node;
-import tree.Tree;
-
 public class AvlTree<T extends Comparable<T>>{
 	
 	private AvlNode<T> root = null;
@@ -36,7 +32,7 @@ public class AvlTree<T extends Comparable<T>>{
 				if(temp == root) {
 					root = subRaiz;
 				}
-			}else {
+			}else if (fb == 2) {
 				if(temp.getChilds().get(0).calculateFB() == -1) {
 					temp.getChilds().get(0).turnLeft();
 				}

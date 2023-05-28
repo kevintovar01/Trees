@@ -7,11 +7,13 @@ public class Main {
 		AvlNode<Integer> node = new AvlNode<>(80, null);
 		
 		tree.addNode(node);
-		node.addNode(new AvlNode<>(30));
-		node.addNode(new AvlNode<>(20));
-		node.addNode(new AvlNode<>(50));
-		node.addNode(new AvlNode<>(60));
-		node.addNode(new AvlNode<>(10));
+		tree.insertNode(new AvlNode<>(30));
+		tree.insertNode(new AvlNode<>(20));
+		tree.insertNode(new AvlNode<>(50));
+		tree.insertNode(new AvlNode<>(100));
+		tree.insertNode(new AvlNode<>(40));
+		tree.insertNode(new AvlNode<>(101));
+
 		
 		node.drawTree();
 		
