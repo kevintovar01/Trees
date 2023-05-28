@@ -12,7 +12,6 @@ public class AvlTree<T extends Comparable<T>>{
         }else{
             return this.root = node;
         }
-//        return node;
     }
 	
 	public void balance(AvlNode<T> temp) {
@@ -44,8 +43,10 @@ public class AvlTree<T extends Comparable<T>>{
 		}
 	}
 	
-	public void insertNode(AvlNode<T> node) {
-		AvlNode<T> newNode = addNode(node);
+	public void insertNode(int value) {
+		AvlNode<Integer> node = new AvlNode<>(value);
+		@SuppressWarnings("unchecked")
+		AvlNode<T> newNode = addNode((AvlNode<T>) node);
 		balance(newNode);
 	}
 	

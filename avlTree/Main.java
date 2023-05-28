@@ -23,12 +23,12 @@ public class Main {
 		AvlNode<Integer> node = new AvlNode<>(80, null);
 		
 		tree.addNode(node);
-		tree.insertNode(new AvlNode<>(30));
-		tree.insertNode(new AvlNode<>(20));
-		tree.insertNode(new AvlNode<>(50));
-		tree.insertNode(new AvlNode<>(100));
-		tree.insertNode(new AvlNode<>(40));
-		tree.insertNode(new AvlNode<>(101));
+		tree.insertNode(30);
+		tree.insertNode(20);
+		tree.insertNode(50);
+		tree.insertNode(100);
+		tree.insertNode(40);
+		tree.insertNode(101);
 
 		
 		tree.drawTree();
