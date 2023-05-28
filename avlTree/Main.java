@@ -17,6 +17,11 @@ public class Main {
 		
 		tree.drawTree();
 		
+		tree.removeNode(100);
+		System.out.println("------");
+		
+		tree.drawTree();
+		
 //		System.out.println(tree.searchNodeTree(80));
 	}
 

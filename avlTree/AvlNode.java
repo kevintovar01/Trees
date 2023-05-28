@@ -2,6 +2,7 @@ package avlTree;
 import java.util.ArrayList;
 
 import binaryTree.BinaryNode;
+import tree.Node;
 
 
 
@@ -48,6 +49,16 @@ public class AvlNode<T extends Comparable<T>>{
 			}
 		}
 		return node;
+	}
+	
+	public boolean isLeaf() {
+		return this.childs.get(0) == null && this.childs.get(1) == null;
+	}
+	
+	public void remplaceData(AvlNode<T> nodo) {
+		T temp = this.value;
+		this.value = nodo.value;
+		nodo.value = temp;
 	}
 		
 	/*
@@ -153,11 +164,15 @@ public class AvlNode<T extends Comparable<T>>{
 	
 	
 	
+	
+	
 	public AvlNode<T> drawNodeTree() {
 		System.out.println("Dibujando arbol binario Infijo");
 		this.ArbolInfijo();
 		System.out.println("Dibujando arbol binario Posfijo");
 		this.ArbolPosfijo();
+		System.out.println("Dibujando arbol binario Preorden");
+		this.ArbolPreorden();
 		return null;
 	}
 	
@@ -183,6 +198,19 @@ public class AvlNode<T extends Comparable<T>>{
 
 		System.out.println(this.toString());
 	}
+	
+	public void ArbolPreorden() {
+		System.out.println(this.toString());
+
+		if (getChilds().get(0) != null) {
+			this.childs.get(0).ArbolPreorden();
+		}
+
+		if (getChilds().get(1) != null) {
+			this.childs.get(1).ArbolPreorden();
+		}
+	}
+
 	
 	public String toString() {
 		if(value == null) {
