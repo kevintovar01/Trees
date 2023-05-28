@@ -122,7 +122,6 @@ public class BinaryNode<T extends Comparable> extends Node<T> {
         return;
     }
     
-    
     if(nodoAEliminar.getChilds().get(0) != null && nodoAEliminar.getChilds().get(1) != null) {
         BinaryNode<T> sucesor = (BinaryNode<T>) nodoAEliminar.getChilds().get(1);
         while(sucesor.getChilds().get(0) != null) {
