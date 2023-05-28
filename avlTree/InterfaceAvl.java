@@ -96,7 +96,6 @@ public class InterfaceAvl extends JPanel implements ActionListener {
 	public void paint(Graphics g) {
 		super.paint(g);
 		if (conta==1) {
-			System.out.println();
 			tree.arbolPreordenGrap(tree.getRoot(), g);
 		}
 	}
