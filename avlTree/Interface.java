@@ -90,8 +90,8 @@ public class Interface extends JFrame implements ActionListener {
 		if(node.getValue() == null) {
 			node.setValue(Integer.parseInt(textField.getText()));
 			tree.addNode(node);
-		}else {			
-			tree.insertNode(new AvlNode<>(Integer.parseInt(textField.getText())));
+		}else {		
+			tree.insertNode(Integer.parseInt(textField.getText()));
 		}
 		textField.setText("");
 	}
