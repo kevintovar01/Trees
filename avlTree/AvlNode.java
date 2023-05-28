@@ -1,10 +1,7 @@
 package avlTree;
-import java.awt.Graphics;
 import java.util.ArrayList;
 
 public class AvlNode<T extends Comparable<T>>{
-
-	static final int inix=580,iniy=0;// el nodo principal apaprece
 
 	private T value;
 	private ArrayList<AvlNode<T>> childs = new ArrayList<>();
@@ -202,36 +199,6 @@ public class AvlNode<T extends Comparable<T>>{
 			this.childs.get(1).arbolPreorden();
 		}
 	}
-	
-	public void arbolPreordenGrap(AvlNode<T> node, Graphics g,AvlNode<T> root) {
-		System.out.println(this.toString());
-		int distanciaX=10;
-		int distanciaY=20;
-		if(node== root){
-			root.x=0;
-			root.y=0;
-			g.drawOval(inix+root.x, iniy+root.y, 30, 30);
-			g.drawString(root.getValue().toString(), inix+root.x+distanciaX, iniy+root.y+distanciaY);
-		}else{
-			if (getChilds().get(0) != null) {
-				node.x=node.getParent().x-90;
-				node.y=node.getParent().y+75;
-				g.drawOval(inix+node.x, iniy+node.y, 30, 30);
-				g.drawString(node.getValue().toString(), inix+node.x+distanciaX, iniy+node.y+distanciaY);	
-				g.drawLine(inix+node.x+distanciaX, iniy+node.y, inix+node.getParent().x+distanciaX, iniy+node.getParent().y+30);
-				this.childs.get(0).arbolPreordenGrap(node,g,root);
-			}
-			if (getChilds().get(1) != null) {
-				node.x=node.getParent().x+90;
-				node.y=node.getParent().y+75;
-				g.drawOval(inix+node.x, iniy+node.y, 30, 30);
-				g.drawString(node.getValue().toString(), inix+node.x+distanciaX, iniy+node.y+distanciaY);
-				g.drawLine(inix+node.x+distanciaX, iniy+node.y, inix+node.getParent().x+distanciaX, iniy+node.getParent().y+30);
-				this.childs.get(1).arbolPreordenGrap(node,g,root);
-			}
-		}
-	}
-
 	
 	public String toString() {
 		if(value == null) {
