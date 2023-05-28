@@ -1,6 +1,8 @@
 package avlTree;
 import java.util.ArrayList;
 
+import binaryTree.BinaryNode;
+
 
 
 public class AvlNode<T extends Comparable<T>>{
@@ -129,6 +131,25 @@ public class AvlNode<T extends Comparable<T>>{
 		r.updateHeight();
 		g.updateHeight();
 		return g;
+	}
+	
+	public AvlNode<T> searchNode(T value) {
+		System.out.println(this.value);
+		if(value.equals(this.value)) {
+			return this;
+		}else if(value.compareTo(this.value) > 0){		
+			if(this.childs.get(1) != null) {
+				return this.childs.get(1).searchNode(value);
+			}else {
+				return null;
+			}
+		}else {
+			if(this.childs.get(0) != null) {
+				return this.childs.get(0).searchNode(value);
+			}else {
+				return null;
+			}
+		}
 	}
 	
 	public void ArbolInfijo() {

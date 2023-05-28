@@ -1,5 +1,7 @@
 package avlTree;
 
+import binaryTree.BinaryNode;
+
 public class AvlTree<T extends Comparable<T>>{
 	
 	private AvlNode<T> root = null;
@@ -44,6 +46,15 @@ public class AvlTree<T extends Comparable<T>>{
 			if (!changeHeight) return;
 		}
 	}
+	
+	
+	public AvlNode<T> searchNodeTree(T value) {
+		if(root == null) {
+			return null;
+		}
+		return root.searchNode(value);
+	}
+
 	
 	
 	
