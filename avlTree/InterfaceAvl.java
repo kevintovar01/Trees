@@ -64,9 +64,11 @@ public class InterfaceAvl extends JPanel implements ActionListener {
         JButton btnDelete = new JButton("Delete");
         btnDelete.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent d) {
-        		tree.removeNode(Integer.parseInt(textField.getText()));
-				repaint();
-        		textField.setText("");
+        		try {        			
+        			tree.removeNode(Integer.parseInt(textField.getText()));
+        			repaint();
+        			textField.setText("");
+        		}catch(Exception ex){}
         		
         	}
         });
@@ -74,6 +76,7 @@ public class InterfaceAvl extends JPanel implements ActionListener {
         JFrameAVL.getContentPane().add(btnDelete);
         
         JButton btnInsert = new JButton("Insert");
+        btnInsert.addActionListener(this);
         btnInsert.setBounds(422, 580, 121, 39);
         JFrameAVL.getContentPane().add(btnInsert);
         JFrameAVL.setSize(732, 669);
@@ -85,8 +88,10 @@ public class InterfaceAvl extends JPanel implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(node.getValue() == null) {
-			node.setValue(Integer.parseInt(textField.getText()));
-			tree.addNode(node);
+			try {				
+				node.setValue(Integer.parseInt(textField.getText()));
+				tree.addNode(node);
+			}catch(Exception ex) {}
 		}else {		
 			tree.insertNode(Integer.parseInt(textField.getText()));
 		}
