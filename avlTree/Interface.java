@@ -11,6 +11,7 @@ import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.Button;
+import javax.swing.JTextArea;
 
 public class Interface extends JFrame implements ActionListener {
 
