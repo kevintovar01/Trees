@@ -1,14 +1,11 @@
 package avlTree;
 
 import java.awt.Graphics;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import java.awt.Canvas;
-import javax.swing.JScrollPane;
-import javax.swing.ScrollPaneConstants;
 
 import java.awt.TextField;
 import java.awt.event.ActionEvent;
@@ -19,6 +16,7 @@ public class Interface extends JFrame implements ActionListener {
 
 	private TextField textField;
 	private JPanel contentPane;
+	private Canvas canvas;
 
 	AvlTree<Integer> tree = new AvlTree<>();
 	AvlNode<Integer> node = new AvlNode<>(null, null);
@@ -35,12 +33,6 @@ public class Interface extends JFrame implements ActionListener {
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-
-		JScrollPane scrollPane = new JScrollPane(this,
-		ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,
-		ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-		scrollPane.setBounds(55, 38, 317, 378);
-		contentPane.add(scrollPane);
 		
 		JButton btnNewInsert = new JButton("Insert");
 		btnNewInsert.addActionListener(this);
@@ -61,8 +53,8 @@ public class Interface extends JFrame implements ActionListener {
 		
 
 		
-		Canvas canvas = new Canvas();
-		scrollPane.setRowHeaderView(canvas);
+		canvas = new Canvas();
+		canvas.setBounds(0, 0, 150, 100);
 		
 		TextField textField = new TextField();
 		textField.setBounds(174, 427, 81, 22);
@@ -94,9 +86,9 @@ public class Interface extends JFrame implements ActionListener {
 		textField.setText("");
 	}
 	
-	public void paintComponents(Graphics g) {
-		super.paintComponents(g);
-		if(node.getValue() == null) {
+	public void paint(Graphics g) {
+		super.paint(g);
+ 		if(node.getValue() != null) {
 			tree.getRoot().arbolPreordenGrap(node, g, tree.getRoot());
 		}
 	}
