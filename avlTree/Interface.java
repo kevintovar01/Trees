@@ -1,6 +1,5 @@
 package avlTree;
 
-import java.awt.EventQueue;
 import java.awt.Graphics;
 
 import javax.swing.JFrame;
@@ -8,7 +7,6 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import java.awt.Canvas;
-import java.awt.ScrollPane;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
 
