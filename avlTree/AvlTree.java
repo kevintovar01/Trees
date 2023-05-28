@@ -125,7 +125,16 @@ public class AvlTree<T extends Comparable<T>>{
 		return root.drawNodeTree();
 	}
 	
-	
 
+	public AvlNode<T> getRoot() {
+		return root;
+	}
+
+	public void setRoot(AvlNode<T> root) {
+		this.root = root;
+	}
+	
+	
+	
 
 }

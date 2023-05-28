@@ -1,4 +1,5 @@
 package avlTree;
+import java.awt.Graphics;
 import java.util.ArrayList;
 
 import binaryTree.BinaryNode;
@@ -12,6 +13,7 @@ public class AvlNode<T extends Comparable<T>>{
 	private ArrayList<AvlNode<T>> childs = new ArrayList<>();
 	private AvlNode<T> parent = null;
 	private int height;
+	private int x,y;
 	
 	public AvlNode(T value) {
 		this.value = value;
@@ -167,12 +169,7 @@ public class AvlNode<T extends Comparable<T>>{
 	
 	
 	public AvlNode<T> drawNodeTree() {
-		System.out.println("Dibujando arbol binario Infijo");
-		this.ArbolInfijo();
-		System.out.println("Dibujando arbol binario Posfijo");
-		this.ArbolPosfijo();
-		System.out.println("Dibujando arbol binario Preorden");
-		this.ArbolPreorden();
+		this.arbolPreorden();
 		return null;
 	}
 	
@@ -199,15 +196,27 @@ public class AvlNode<T extends Comparable<T>>{
 		System.out.println(this.toString());
 	}
 	
-	public void ArbolPreorden() {
+	public void arbolPreorden() {
 		System.out.println(this.toString());
 
 		if (getChilds().get(0) != null) {
-			this.childs.get(0).ArbolPreorden();
+			this.childs.get(0).arbolPreorden();
 		}
 
 		if (getChilds().get(1) != null) {
-			this.childs.get(1).ArbolPreorden();
+			this.childs.get(1).arbolPreorden();
+		}
+	}
+	
+	public void arbolPreordenGrap(AvlTree<T> tree, Graphics g) {
+		System.out.println(this.toString());
+
+		if (getChilds().get(0) != null) {
+			this.childs.get(0).arbolPreorden();
+		}
+
+		if (getChilds().get(1) != null) {
+			this.childs.get(1).arbolPreorden();
 		}
 	}
 
