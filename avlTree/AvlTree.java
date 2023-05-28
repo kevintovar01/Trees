@@ -1,6 +1,5 @@
 package avlTree;
 
-import binaryTree.BinaryNode;
 
 public class AvlTree<T extends Comparable<T>>{
 	
@@ -53,6 +52,10 @@ public class AvlTree<T extends Comparable<T>>{
 			return null;
 		}
 		return root.searchNode(value);
+	}
+	
+	public AvlNode<T> drawTree(){
+		return root.drawNodeTree();
 	}
 
 	

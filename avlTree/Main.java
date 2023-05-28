@@ -15,9 +15,9 @@ public class Main {
 		tree.insertNode(new AvlNode<>(101));
 
 		
-//		node.drawTree();
+		tree.drawTree();
 		
-		System.out.println(tree.searchNodeTree(80));
+//		System.out.println(tree.searchNodeTree(80));
 	}
 
 }

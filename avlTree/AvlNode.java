@@ -134,7 +134,6 @@ public class AvlNode<T extends Comparable<T>>{
 	}
 	
 	public AvlNode<T> searchNode(T value) {
-		System.out.println(this.value);
 		if(value.equals(this.value)) {
 			return this;
 		}else if(value.compareTo(this.value) > 0){		
@@ -152,6 +151,16 @@ public class AvlNode<T extends Comparable<T>>{
 		}
 	}
 	
+	
+	
+	public AvlNode<T> drawNodeTree() {
+		System.out.println("Dibujando arbol binario Infijo");
+		this.ArbolInfijo();
+		System.out.println("Dibujando arbol binario Posfijo");
+		this.ArbolPosfijo();
+		return null;
+	}
+	
 	public void ArbolInfijo() {
 		if(this.childs.get(0) != null) {
 			this.childs.get(0).ArbolInfijo();
@@ -164,16 +173,16 @@ public class AvlNode<T extends Comparable<T>>{
 	}
 	
 	public void ArbolPosfijo() {
-	    if (getChilds().get(0) != null) {
-	      this.childs.get(0).ArbolInfijo();
-	    }
-	    
-	    if (getChilds().get(1) != null) {
-	    	this.childs.get(1).ArbolInfijo();
-	    }
-	    
-	    System.out.println(this.toString());
-	 }
+		if (getChilds().get(0) != null) {
+			this.childs.get(0).ArbolPosfijo();
+		}
+
+		if (getChilds().get(1) != null) {
+			this.childs.get(1).ArbolPosfijo();
+		}
+
+		System.out.println(this.toString());
+	}
 	
 	public String toString() {
 		if(value == null) {
@@ -182,15 +191,6 @@ public class AvlNode<T extends Comparable<T>>{
 			return value.toString();
 		}	
 	}
-	
-	
-	public void drawTree() {
-		System.out.println("Dibujando arbol binario Infijo");
-		this.ArbolInfijo();
-//		System.out.println("Dibujando arbol binario Posfijo");
-//		this.ArbolPosfijo();
-	}
-	
 	
 
 	public T getValue() {
